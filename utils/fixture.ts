@@ -5,7 +5,7 @@ export type reqHandType={
     given:RequestHandler
 }
 
-export const Given = fixtureTest.extend<reqHandType>({given:async({},use)=>{
+export const testFixture = fixtureTest.extend<reqHandType>({given:async({},use)=>{
     const requesthandler = new RequestHandler();
     await use(requesthandler);
 }})

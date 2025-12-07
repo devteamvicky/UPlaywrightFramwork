@@ -1,6 +1,6 @@
 import { test} from "@playwright/test"
 import { RequestHandler } from "../utils/request-handler.ts";
-import { Given } from "../utils/fixture.ts"
+import { testFixture } from "../utils/fixture.ts"
 
 const given = new RequestHandler();
 const reqData = {
@@ -30,7 +30,7 @@ test("Create Single Object", async ({ request }) => {
     console.log(sigleObjectJSON);
 })
 
-Given("Validate single object using Fixture ",async({given})=>{
+testFixture("Validate single object using Fixture ",async({given})=>{
     const res =  given
         .baseURI("https://api.restful-api.dev")
         .path("/objects")

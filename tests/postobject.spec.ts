@@ -26,14 +26,18 @@ test("Create Single Object", async ({ request }) => {
             }
         },
     })
-    const sigleObjectJSON = sigleObjectResponse.json();
+    const sigleObjectJSON = await sigleObjectResponse.json();
     console.log(sigleObjectJSON);
 })
 
 Given("Validate single object using Fixture ",async({given})=>{
-    const res = given
+    const res =  given
         .baseURI("https://api.restful-api.dev")
         .path("/objects")
-        .requestBody(reqData);
+        .queryParams({name:"vignesh",age:28})
+        .requestBody(reqData)
+        .getURL()
 })
+
+
 
